@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
@@ -8,8 +8,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ChevronLeft } from "lucide-react"
 import { CommentSection } from "@/components/comment-section"
 import { ShareButton } from "@/components/share-button"
-import { LikeButton } from "@/components/like-button"
-import { DeletePhotoButton } from "@/components/delete-photo-button"
 import { getPhotoById } from "@/lib/actions"
 
 export default async function PhotoPage({
@@ -49,17 +47,10 @@ export default async function PhotoPage({
               <h1 className="text-2xl font-bold">{photo.title || "無題"}</h1>
               <p className="text-muted-foreground text-sm">{new Date(photo.createdAt).toLocaleDateString("ja-JP")}</p>
             </div>
-            <div className="flex space-x-2">
-                <LikeButton
-                    photoId={photo.id}
-                    initialLikeCount={photo.likeCount}
-                    initialIsLiked={photo.isLiked || false}
-                />
-                <ShareButton id={photo.id} />
-            </div>
+            <ShareButton id={photo.id} />
           </div>
-          <DeletePhotoButton photoId={photo.id} />
-          {/* <Button
+          
+          <Button
             variant="destructive"
             onClick={async () => {
               if (confirm("本当にこの投稿を削除しますか？")) {
@@ -69,7 +60,7 @@ export default async function PhotoPage({
             }}
           >
             投稿を削除
-          </Button> */}
+          </Button>
 
           {photo.description && <p className="mt-4 mb-6">{photo.description}</p>}
 

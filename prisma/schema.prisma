@@ -14,8 +14,6 @@ model Photo {
   description String?
   createdAt   DateTime  @default(now())
   comments    Comment[]
-  likes       Like[]
-  likeCount   Int       @default(0)
 }
 
 model Comment {
@@ -27,12 +25,3 @@ model Comment {
   photoId   String
 }
 
-model Like {
-  id        String   @id @default(cuid())
-  clientId  String
-  createdAt DateTime @default(now())
-  photo     Photo    @relation(fields: [photoId], references: [id], onDelete: Cascade)
-  photoId   String
-
-  @@unique([clientId, photoId])
-}
