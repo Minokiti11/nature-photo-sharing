@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { MessageCircle, Share2 } from "lucide-react"
+import { LikeButton } from "@/components/like-button"
 import { getPhotos } from "@/lib/actions"
 import type { Photo } from "@/lib/types"
 
