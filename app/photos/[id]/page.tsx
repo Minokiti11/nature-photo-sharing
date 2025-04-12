@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ChevronLeft } from "lucide-react"
 import { CommentSection } from "@/components/comment-section"
 import { ShareButton } from "@/components/share-button"
+import { LikeButton } from "@/components/like-button"
 import { getPhotoById } from "@/lib/actions"
 
 export default async function PhotoPage({
@@ -47,7 +48,14 @@ export default async function PhotoPage({
               <h1 className="text-2xl font-bold">{photo.title || "無題"}</h1>
               <p className="text-muted-foreground text-sm">{new Date(photo.createdAt).toLocaleDateString("ja-JP")}</p>
             </div>
-            <ShareButton id={photo.id} />
+            <div className="flex space-x-2">
+                <LikeButton
+                    photoId={photo.id}
+                    initialLikeCount={photo.likeCount}
+                    initialIsLiked={photo.isLiked || false}
+                />
+                <ShareButton id={photo.id} />
+            </div>
           </div>
           
           <Button

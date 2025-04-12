@@ -72,6 +72,11 @@ export function PhotoGallery() {
                   <MessageCircle className="h-4 w-4 mr-1" />
                   <span>{photo.comments?.length || 0}</span>
                 </div>
+                <LikeButton
+                  photoId={photo.id}
+                  initialLikeCount={photo.likeCount}
+                  initialIsLiked={photo.isLiked || false}
+                  />
                 <div className="flex items-center">
                   <Share2 className="h-4 w-4 mr-1" />
                   <span>共有</span>
