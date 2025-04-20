@@ -58,7 +58,7 @@ export default async function PhotoPage({
             </div>
           </div>
           
-          <Button
+          {/* <Button
             variant="destructive"
             onClick={async () => {
               if (confirm("本当にこの投稿を削除しますか？")) {
@@ -68,7 +68,7 @@ export default async function PhotoPage({
             }}
           >
             投稿を削除
-          </Button>
+          </Button> */}
 
           {photo.description && <p className="mt-4 mb-6">{photo.description}</p>}
 
