@@ -64,7 +64,6 @@ export function PhotoGallery() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 placeholder="blur"
-                blurDataURL="/placeholder-blur.png"
                 fetchPriority={index < 4 ? "high" : "auto"}
                 loading={index < 4 ? "eager" : "lazy"}
                 quality={85}
