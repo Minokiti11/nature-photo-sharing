@@ -39,6 +39,11 @@ export default async function PhotoPage({
             fill
             className="object-contain"
             priority
+            placeholder="blur"
+            blurDataURL="/placeholder-blur.png"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
+            loading="eager"
+            quality={90}
           />
         </div>
 
@@ -78,4 +83,3 @@ export default async function PhotoPage({
     </div>
   )
 }
-

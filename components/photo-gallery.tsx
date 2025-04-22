@@ -63,6 +63,9 @@ export function PhotoGallery() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                placeholder="blur"
+                blurDataURL="/placeholder-blur.png"
+                priority
               />
             </div>
             <CardContent className="p-3">
@@ -76,7 +79,7 @@ export function PhotoGallery() {
                   photoId={photo.id}
                   initialLikeCount={photo.likeCount}
                   initialIsLiked={photo.isLiked || false}
-                  />
+                />
                 <div className="flex items-center">
                   <Share2 className="h-4 w-4 mr-1" />
                   <span>共有</span>
@@ -89,4 +92,3 @@ export function PhotoGallery() {
     </div>
   )
 }
-
