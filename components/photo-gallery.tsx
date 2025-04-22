@@ -53,7 +53,7 @@ export function PhotoGallery() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {photos.map((photo) => (
+      {photos.map((photo, index) => (
         <Link key={photo.id} href={`/photos/${photo.id}`}>
           <Card className="overflow-hidden hover:shadow-md transition-shadow">
             <div className="aspect-square relative">
@@ -65,7 +65,9 @@ export function PhotoGallery() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 placeholder="blur"
                 blurDataURL="/placeholder-blur.png"
-                priority
+                fetchPriority={index < 4 ? "high" : "auto"}
+                loading={index < 4 ? "eager" : "lazy"}
+                quality={85}
               />
             </div>
             <CardContent className="p-3">

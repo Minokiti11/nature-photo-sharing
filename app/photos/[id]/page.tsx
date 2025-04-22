@@ -42,7 +42,7 @@ export default async function PhotoPage({
             placeholder="blur"
             blurDataURL="/placeholder-blur.png"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
-            loading="eager"
+            fetchPriority="high"
             quality={90}
           />
         </div>

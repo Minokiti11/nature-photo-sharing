@@ -1,36 +1,29 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import "./globals.css"
+import type { Metadata } from "next"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
 
 export const metadata: Metadata = {
-  title: "Nature Map Sharing App",
-  description: "Share your map in your groups",
-};
+  title: "Nature Photo Sharing App",
+  description: "Share your photos and comments easily without login",
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html lang="ja" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/placeholder-blur.png"
+          type="image/png"
+        />
+      </head>
+      <body className="min-h-screen bg-background">{children}</body>
     </html>
-  );
+  )
 }
