@@ -1,20 +1,30 @@
-import "./globals.css"
-import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import "./globals.css";
+
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
-  title: "Nature Photo Sharing App",
-  description: "Share your photos and comments easily without login",
-}
+  title: "Nature Photos Sharing App",
+  description: "Share your map in your groups",
+};
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="ja" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="ja" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
         <link
           rel="preload"
@@ -25,5 +35,5 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-background">{children}</body>
     </html>
-  )
+  );
 }
